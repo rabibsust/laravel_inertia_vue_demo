@@ -10,14 +10,24 @@
         <div class="py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg p-8">
+                    <!-- Show success message -->
+                    <div v-if="$page.props.message" class="mb-4 text-green-500">
+                        {{ $page.props.message }}
+                    </div>
                     <form class="w-3/4 mx-auto" @submit.prevent="submit">
                         <div class="flex my-4 w-full space-x-5">
                             <label class="w-16 text-sm font-medium text-gray-700 my-auto" for="title">Title</label>
-                            <input class="w-1/2 text-sm font-medium text-gray-700 my-auto" type="text" id="title" v-model="form.title" />
+                            <input class="w-1/2 text-sm font-medium text-gray-700 my-auto" :class="{ 'border-red-500': form.errors.title }" type="text" id="title" v-model="form.title" />
+                            <div v-if="form.errors.title" class="ml-20 mt-1 text-sm text-red-500">
+                                {{ form.errors.title }}
+                            </div>
                         </div>
                         <div class="flex my-4 w-full space-x-5">
                             <label class="w-16 text-sm font-medium text-gray-700 my-auto" for="body">Body</label>
-                            <textarea class="w-1/2 text-sm font-medium text-gray-700 my-auto" id="body" v-model="form.body"></textarea>
+                            <textarea class="w-1/2 text-sm font-medium text-gray-700 my-auto" :class="{ 'border-red-500': form.errors.body }" id="body" v-model="form.body"></textarea>
+                            <div v-if="form.errors.body" class="ml-20 mt-1 text-sm text-red-500">
+                                {{ form.errors.body }}
+                            </div>
                         </div>
                         <button class="inline-block mx-20 my-4 px-4 py-2 mb-4 text-white bg-green-800 rounded hover:bg-green-600 transition" type="submit">Submit</button>
                     </form>

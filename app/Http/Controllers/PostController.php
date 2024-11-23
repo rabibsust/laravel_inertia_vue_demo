@@ -21,7 +21,11 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        $post = new Post($request->all());
+        $validated = $request->validate([
+            'title' => 'required|max:255',
+            'body' => 'required',
+        ]);
+        $post = new Post($validated);
         $post->save();
         return redirect()->route('posts.index');
     }
@@ -39,7 +43,12 @@ class PostController extends Controller
 
     public function update(Request $request, Post $post)
     {
-        $post->update($request->all());
+        $validated = $request->validate([
+            'title' => 'required|max:255',
+            'body' => 'required',
+        ]);
+        
+        $post->update($validated);
         return redirect()->route('posts.index');
     }
 
