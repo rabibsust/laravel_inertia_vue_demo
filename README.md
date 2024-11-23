@@ -38,24 +38,38 @@ A modern blog application built with Laravel, Vue.js, and Inertia.js, using Lara
     cd <project-folder>
     ```
 2. Install PHP dependencies
-    ```composer install```
+    ```
+    composer install
+    ```
 3. Install Laravel Breeze
-    ```php artisan breeze:install```
+    ```
+    php artisan breeze:install
+    ```
     - Install Breeze with Vue and Inertia
 4. Create environment file and generate application key
-    ```cp .env.example .env```
+    ```
+    cp .env.example .env
+    ```
 5. Run Migrations
-    ```php artisan migrate```
+    ```
+    php artisan migrate
+    ```
 6. Install Node dependencies and build assets
-    ```npm install```
+    ```
+    npm install
+    ```
 
 
 ## 🚀 Development
 
 1. Start the Laravel development server
-    `php artisan serve`
+    ```
+    php artisan serve
+    ```
 2. Start the Vite development server
-    `npm run dev`
+    ```
+    npm run dev
+    ```
 
 ## 🔑 Authentication
 
@@ -69,6 +83,7 @@ Laravel Breeze provides the following features out of the box:
 All authentication views are built with Vue.js and styled with Tailwind CSS.
 
 ## 📁 Project Structure
+```
 ├── resources/
 │ ├── js/
 │ │ ├── Components/
@@ -82,6 +97,7 @@ All authentication views are built with Vue.js and styled with Tailwind CSS.
 └── Http/
 ├── Controllers/
 └── Middleware/
+```
 
 ## 🔧 Configuration
 
